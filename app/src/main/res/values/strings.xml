@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lesson2</string>
+    <string name="Cantidad">Cantidad</string>
+    <string name="btnOrdenar">Ordenar</string>
+    <string name="btnAgr">+</string>
+    <string name="btnQuitar">-</string>
+    <string name="Precio">Precio</string>
+</resources>
