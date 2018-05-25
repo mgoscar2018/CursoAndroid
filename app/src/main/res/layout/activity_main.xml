@@ -53,11 +53,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="@string/Precio"
+        android:text="@string/resumen"
         android:textAllCaps="true"/>
 
     <TextView
-        android:id="@+id/precio_text_view"
+        android:id="@+id/resumen_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$0"
