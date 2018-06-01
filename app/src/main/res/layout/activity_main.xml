@@ -1,75 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="16dp"
-    android:paddingTop="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/Cantidad"
-        android:textAllCaps="true"/> <!-- Convierte todo el texto en Mayúsculas -->
+    tools:context=".MainActivity"> <!-- Colocar todo dentro de una vista tipo "ScrollView" permite ver objetos cuando la pantalla es pequeña -->
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
 
-        <Button
-            android:id="@+id/quitar_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:text="@string/btnQuitar"
-            android:onClick="quitar"/>
+        <EditText
+            android:id="@+id/nombre_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nombre_input"
+            android:inputType="textCapWords" />
 
         <TextView
-            android:id="@+id/cantidad_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:text="2"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/Ingredientes"
+            android:textAllCaps="true" />
+
+        <CheckBox
+            android:id="@+id/crema_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="24dp"
+            android:text="@string/CremaBatida"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/chocolate_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:paddingLeft="24dp"
+            android:text="@string/Chocolate"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/Cantidad"
+            android:textAllCaps="true" /> <!-- Convierte todo el texto en Mayúsculas -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/quitar_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:onClick="quitar"
+                android:text="@string/btnQuitar" />
+
+            <TextView
+                android:id="@+id/cantidad_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:text="2"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/agregar_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:onClick="agregar"
+                android:text="@string/btnAgr" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/resumen"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/resumen_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$0"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <Button
-            android:id="@+id/agregar_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:text="@string/btnAgr"
-            android:onClick="agregar"/>
+            android:id="@+id/ordenar_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="realizarOrden"
+            android:text="@string/btnOrdenar" /> <!-- al pulsar el botón ejecuta el método "realizarOrden" localizado en "MainActivity.java -->
 
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/resumen"
-        android:textAllCaps="true"/>
-
-    <TextView
-        android:id="@+id/resumen_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="$0"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"/>
-
-    <Button
-        android:id="@+id/ordenar_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/btnOrdenar"
-        android:onClick="realizarOrden"/> <!-- al pulsar el botón ejecuta el método "realizarOrden" localizado en "MainActivity.java -->
-
-</LinearLayout>
+</ScrollView>

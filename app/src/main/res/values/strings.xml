@@ -1,8 +1,12 @@
 <resources>
-    <string name="app_name">Clase 2 y 5</string>
+    <string name="app_name">Clase 2,5 y 6</string>
+    <string name="Ingredientes">Ingredientes</string>
     <string name="Cantidad">Cantidad</string>
+    <string name="CremaBatida">Crema Batida</string>
+    <string name="Chocolate">Chocolate</string>
     <string name="btnOrdenar">Ordenar</string>
     <string name="btnAgr">+</string>
     <string name="btnQuitar">-</string>
     <string name="resumen">Resumen de la Orden</string>
+    <string name="nombre_input">Nombre</string>
 </resources>

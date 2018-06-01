@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +42,16 @@ public class MainActivity extends AppCompatActivity {
     public void realizarOrden(View view) {
         //mostrarPrecio(5 * cantidad);
         int precio = calcularPrecio();
-        mostrarMensaje(crearResumenOrden(precio));
+        //revisar estatus de CheckBoxes
+        CheckBox selCremaB = (CheckBox) findViewById(R.id.crema_checkbox);
+        boolean tieneCrema = selCremaB.isChecked();
+        CheckBox selChoco = (CheckBox) findViewById(R.id.chocolate_checkbox);
+        boolean tieneChoco = selChoco.isChecked();
+        // Obtenemos el valor que tiene almacenado el campo Nombre
+        EditText nombreET = (EditText) findViewById(R.id.nombre_view);
+        String nombre = nombreET.getText().toString();
+
+        mostrarMensaje(crearResumenOrden(precio,tieneCrema,tieneChoco,nombre));
     }
 
     /**
@@ -51,12 +62,22 @@ public class MainActivity extends AppCompatActivity {
         return cantidad * 5;
     }
 
-    /*
-    * Arma el resumen de la orden
+    /**
+     * Arma el resumen de la orden
+     * @param precio total de la orden
+     * @param crema es una bandera que indica si lleva o no crema batida
+     * @param choco es una bandera que permite saber si lleva o no Chocolate
+     * @param cliente es el nombre de la persona que compró
      */
-    private String crearResumenOrden (int precio) {
+    private String crearResumenOrden (int precio, boolean crema, boolean choco, String cliente) {
         Toast.makeText(getApplicationContext(), "¡Muchas gracias por tu compra!", Toast.LENGTH_SHORT).show(); //Muestra un mensaje temporal en pantalla
-        return "Nombre: Oscar Miranda\n"+"Cantidad: "+cantidad+"\nTotal: $"+precio+"\n¡Gracias!";
+        String mensaje = "Nombre: "+cliente;
+        mensaje += "\n¿Agrego Crema Batida? "+crema;
+        mensaje += "\n¿Agrego Chocolate? "+choco;
+        mensaje +="\nCantidad: "+cantidad;
+        mensaje +="\nTotal: $"+precio;
+        mensaje +="\n¡Gracias!";
+        return mensaje;
     }
 
     /**
